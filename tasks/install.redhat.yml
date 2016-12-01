@@ -1,0 +1,20 @@
+---
+- name: Add Grafana repository
+  yum_repository:
+    name: grafana
+    description: Grafana repo
+    file: external_grafana_repo
+    baseurl: https://packagecloud.io/grafana/stable/el/6/$basearch
+    gpgcheck: yes
+    enabled: yes
+    repo_gpgcheck: yes
+    gpgkey: https://packagecloud.io/gpg.key https://grafanarel.s3.amazonaws.com/RPM-GPG-KEY-grafana
+    sslverify: yes
+    sslcacert: /etc/pki/tls/certs/ca-bundle.crt
+
+- name: Install grafana from URL [RHEL/CentOS]
+  yum:
+    name: grafana
+    state: latest
+  notify:
+    - grafana restart
