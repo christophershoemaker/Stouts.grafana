@@ -1,5 +1,4 @@
 ---
-
 - include: grafana.yml
   when: grafana_enabled
   tags: [grafana]

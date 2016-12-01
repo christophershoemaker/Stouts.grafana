@@ -21,4 +21,4 @@
   apt: name="grafana"
   when: grafana_version == "latest"
   notify:
-  - grafana restart
+    - grafana restart
